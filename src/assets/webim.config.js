@@ -20,7 +20,7 @@ WebIM.config = {
      * Application AppKey
      */
 //  appkey: 'easemob-demo#chatdemoui',
-    appkey: '1109190110090428#tt',
+//     appkey: '1109190110090428＃sectalk-demo',
 
     /*
      * Whether to use wss

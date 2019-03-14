@@ -1,5 +1,5 @@
 <template>
-    $END$
+    <div>我是发现</div>
 </template>
 
 <script>

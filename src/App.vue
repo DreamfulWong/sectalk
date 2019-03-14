@@ -1,29 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <div id="app">
+        <!--<div v-if="welIsShow">-->
+            <!--<Welcome></Welcome>-->
+        <!--</div>-->
+        <!--<div v-if="!welIsShow">-->
+        <ChatView v-if="chat"></ChatView>
+            <div class="top-nav">
+                <top-nav></top-nav>
+            </div>
+            <router-view/>
+            <div class="tabbar">
+                <bottom-tab></bottom-tab>
+            </div>
+        </div>
+    <!--</div>-->
 </template>
+<script>
+    import Welcome from './components/Welcome'
+    import BottomTab from './components/BottomTab'
+    import TopNav from './components/TopNav'
+    import ChatView from './views/chatview/ChatView'
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+    import {mapState} from 'vuex'
+
+    export default {
+        name: 'App',
+        data(){
+            return{
+                welIsShow:true
+            }
+        },
+        components: {
+            Welcome,
+            TopNav,
+            BottomTab,
+            ChatView
+        },
+        computed:mapState(['chat']),
+        methods: {}
     }
-  }
-}
+</script>
+
+<style>
+    .tabbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 </style>
