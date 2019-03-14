@@ -1,0 +1,1 @@
+export const CHANGE_NAV_TITLE = 'CHANGE_NAV_TITLE'
